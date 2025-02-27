@@ -1,120 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build your project with Elijah</title>
-    <style>
-	
-		header {
-            width: 100%;
-            background: #F2EBE2;
-            color: black;
-            text-align: center;
-            padding: 24px 0;
-        }
-		header h1 {
-			margin: 0;
-			font-family: 'Open Sans';
-			font-size: 22px;
-		}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <meta charset="UTF-8">
+  <!-- Make sure the site scales nicely on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build your project with Elijah</title>
 
-		header h1 a {
-			color: black;
-			text-decoration: none;
-		}
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .container {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-        }
-        .project {
-            display: flex;
-            align-items: left;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-            justify-content: left;
-			height: 80vh;
+  <style>
+    /* Base resets and general styles */
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        }
-        .project.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .project img {
-            width: auto%;
-            height: 50%;
-            margin-right: 20px;
-        }
-        .project .description {
-            flex: 1;
-        }
-    </style>
+    header {
+      width: 100%;
+      background: #F2EBE2;
+      color: black;
+      text-align: center;
+      padding: 24px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    header h1 a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /* Container to center content and set max-width */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px; /* helps add spacing on mobile screens */
+    }
+
+    /* Project card base styles */
+    .project {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+      display: flex;
+      flex-direction: column; /* Stack images and text on small screens */
+      align-items: center;    /* Center them by default */
+      margin-top: 50px;       /* Provide spacing from previous content */
+    }
+
+    /* When in view, fade/slide in */
+    .project.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Make sure images are responsive */
+    .project img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px; /* space below images in mobile view */
+    }
+
+    .project .description {
+      flex: 1;
+      text-align: left;
+    }
+
+    /* Larger screen layout: place image & text side-by-side */
+    @media (min-width: 768px) {
+      .project {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      .project img {
+        margin-right: 20px; /* space between image and text on desktop */
+        margin-bottom: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-	<header class="w-full bg-[#F2EBE2] text-center py-4 shadow-md">
-		<h1 class="text-3xl font-bold">
-			<a href="index.html" class="text-black no-underline">ELIJAH</a>
-		</h1>
-	</header>
+  <header>
+    <h1>
+      <a href="index.html">ELIJAH</a>
+    </h1>
+  </header>
 
-
-	<!-- <h1>Projects to see</h1>  -->
-    <div class="container" >
-        
-        
-        <div class="project" id="project1" style="margin-top: 100px;">
-            <img src="resources\images\output-onlinepngtools.png" alt="Project 1 Logo">
-            <div class="description">
-                <h2>From simple projects</h2>
-                <p>A fun project to play chess against a CPU in a minimal and concealed way. This application combines a basic text editor with chess functionality, allowing you to take notes while casually playing chess in the background.</p>
-				<img alt="A man moving his hands away from his forehead sideways, in a mind-explosion gesture. An overlaid animation enforces the explosion character" width="500" height="300" src="resources\vids\ezgif.com-video-to-gif-converter.gif">
-				</img>
-            </div>
-        </div>
-        
-        <div class="project" id="project2" style="margin-top: 100px;">
-            <img src="resources\images\electron-icon.png" alt="Project 2 Logo">
-            <div class="description">
-                <h2>To more eborate, full fledged applications</h2>
-                <p>Build your dream Windows application with modern UI like <a href="https://paipyrus.github.io/" target="_blank">https://paipyrus.github.io/</a></p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="project" id="project1">
+      <img
+        src="resources/images/output-onlinepngtools.png"
+        alt="Project 1 Logo"
+      />
+      <div class="description">
+        <h2>From simple projects</h2>
+        <p>
+          A fun project to play chess against a CPU in a minimal and concealed way.
+          This application combines a basic text editor with chess functionality,
+          allowing you to take notes while casually playing chess in the background.
+        </p>
+        <img
+          alt="A man moving his hands away from his forehead sideways, in a mind-explosion gesture. An overlaid animation enforces the explosion character"
+          width="500"
+          height="300"
+          src="resources/vids/ezgif.com-video-to-gif-converter.gif"
+        />
+      </div>
     </div>
 
-    <script>
-        function handleScroll() {
-            const projects = document.querySelectorAll('.project');
-            let windowHeight = window.innerHeight;
-            projects.forEach(project => {
-                let projectTop = project.getBoundingClientRect().top;
-                if (projectTop < windowHeight * 0.8 && projectTop > 0) {
-                    project.classList.add('visible');
-                } else {
-                    project.classList.remove('visible');
-                }
-            });
+    <div class="project" id="project2">
+      <img
+        src="resources/images/electron-icon.png"
+        alt="Project 2 Logo"
+      />
+      <div class="description">
+        <h2>To more elaborate, full-fledged applications</h2>
+        <p>
+          Build your dream Windows application with modern UI like
+          <a href="https://paipyrus.github.io/" target="_blank">
+            https://paipyrus.github.io/
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleScroll() {
+      const projects = document.querySelectorAll('.project');
+      let windowHeight = window.innerHeight;
+      projects.forEach(project => {
+        let projectTop = project.getBoundingClientRect().top;
+        if (projectTop < windowHeight * 0.8 && projectTop > 0) {
+          project.classList.add('visible');
+        } else {
+          project.classList.remove('visible');
         }
-        
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', handleScroll);
-    </script>
+      });
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+  </script>
 </body>
 </html>
